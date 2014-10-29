@@ -19,7 +19,7 @@ self.downloader = [[INDGIFPreviewDownloader alloc] initWithURLSessionConfigurati
 
 ```swift
 downloader = INDGIFPreviewDownloader(URLSessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration())
-downloader.downloadGIFPreviewFrameAtURL(URL, completionQueue: dispatch_get_main_queue()) { (image, error) in
+downloader.downloadGIFPreviewFrameAtURL(NSURL(string: "http://i.imgur.com/irqjHqT.gif")!, completionQueue: dispatch_get_main_queue()) { (image, error) in
     self.imageView.image = image
 }
 ```
