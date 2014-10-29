@@ -235,8 +235,8 @@ static NSData * GIFDataFromImageBlock(const uint8_t *bytes,
     }
     
     NSMutableData *data = [NSMutableData dataWithBytes:bytes length:*offset];
-    const char trailer = 0x3b;
-    [data appendBytes:&trailer length:1];
+    const uint8_t trailer = 0x3b;
+    [data appendBytes:&trailer length:sizeof(uint8_t)];
     return data;
 }
 
