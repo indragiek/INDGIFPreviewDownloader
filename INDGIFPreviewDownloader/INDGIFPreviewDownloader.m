@@ -62,8 +62,8 @@ static void SkipGlobalColorTable(const uint8_t *bytes, NSUInteger *offset)
 static void SkipLocalColorTable(const uint8_t *bytes, NSUInteger *offset)
 {
     const uint8_t packedFields = bytes[(*offset)++];
-    const uint8_t gctFlag = packedFields >> 8;
-    if (gctFlag) {
+    const uint8_t lctFlag = packedFields >> 8;
+    if (lctFlag) {
         const uint8_t n = packedFields & 0xf;
         *offset += (1 << (n + 1)) * 3; // # bytes = 2^(n+ 1) * 3
     }
