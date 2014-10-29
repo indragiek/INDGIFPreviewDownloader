@@ -74,9 +74,11 @@ typedef NS_ENUM(NSInteger, INDGIFErrorCode){
  *  @param URL               The URL of the GIF image.
  *  @param completionQueue   Queue to call `completionHandler` on
  *  @param completionHandler Handler to be called upon success or error
+ *
+ *  @return The URL session task for the GIF download
  */
-- (void)downloadGIFPreviewFrameAtURL:(NSURL *)URL
-                     completionQueue:(dispatch_queue_t)completionQueue
-                   completionHandler:(void (^)(UIImage *, NSError *))completionHandler;
+- (NSURLSessionTask *)downloadGIFPreviewFrameAtURL:(NSURL *)URL
+                                   completionQueue:(dispatch_queue_t)completionQueue
+                                 completionHandler:(void (^)(UIImage *, NSError *))completionHandler;
 
 @end

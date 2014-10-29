@@ -392,9 +392,9 @@ static UIImage * ExtractFirstGIFFrameInBuffer(NSData *buffer, NSError **error) {
     return self;
 }
 
-- (void)downloadGIFPreviewFrameAtURL:(NSURL *)URL
-                     completionQueue:(dispatch_queue_t)completionQueue
-                   completionHandler:(void (^)(UIImage *, NSError *))completionHandler
+- (NSURLSessionTask *)downloadGIFPreviewFrameAtURL:(NSURL *)URL
+                                   completionQueue:(dispatch_queue_t)completionQueue
+                                 completionHandler:(void (^)(UIImage *, NSError *))completionHandler
 {
     NSParameterAssert(URL);
     NSParameterAssert(completionQueue);
@@ -406,6 +406,7 @@ static UIImage * ExtractFirstGIFFrameInBuffer(NSData *buffer, NSError **error) {
     [self setPreviewTask:previewTask forSessionTask:sessionTask];
     
     [sessionTask resume];
+    return sessionTask;
 }
 
 #pragma mark - NSURLSessionDataDelegate
