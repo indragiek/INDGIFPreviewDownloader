@@ -421,7 +421,7 @@ static UIImage * ExtractFirstGIFFrameInBuffer(NSData *buffer, NSError **error) {
         
         NSError *error = nil;
         UIImage *image = ExtractFirstGIFFrameInBuffer(task.buffer, &error);
-        if (image != nil || error.code != INDGIFErrorCodeInsufficientData) {
+        if (image != nil || (error != nil && error.code != INDGIFErrorCodeInsufficientData)) {
             [dataTask cancel];
             [self removePreviewTaskForSessionTask:dataTask];
             dispatch_async(task.completionQueue, ^{
